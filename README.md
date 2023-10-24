@@ -1,4 +1,4 @@
-Lab Task 3 - Security Settings with Cloudflare's API
+# Lab Task 3 - Security Settings with Cloudflare's API
 
 In this lab, you are tasked with enhancing the functionality of the main.py script by interacting with Cloudflare's security settings. You will:
 
@@ -6,10 +6,14 @@ In this lab, you are tasked with enhancing the functionality of the main.py scri
 2. Enable "I'm Under Attack" mode.
 3. Adjust the challenge passage time.
 
+---
+
 **Pre-requisites**: 
 
 - Make a new branch with your name or fork the existing repository.
 - Run `pip install -r requirements.txt` to install the required dependencies.
+
+---
 
 **Implementation Steps**:
 
@@ -49,6 +53,8 @@ def set_challenge_passage_time(zone_id, time_in_seconds):
     pass
 ```
 
+---
+
 **Guidelines**:
 
 - For the header section, use either your API_KEY with the EMAIL or API_TOKEN to authenticate your requests.
@@ -56,6 +62,8 @@ def set_challenge_passage_time(zone_id, time_in_seconds):
 - Handle different possible errors gracefully and output helpful error messages.
 - Make sure your code is well-commented to explain the logic and flow of your operations, ensuring it's easier for others to understand.
 - Use of wrapper libraries like `python-cloudflare` is prohibited. You must use the `requests` library to make HTTP requests.
+
+---
 
 **Submission**:
 
