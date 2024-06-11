@@ -16,11 +16,10 @@ HEADERS = {
     "X-Auth-Key": api_key,
     "Content-Type": "application/json"
 }
-
+print(HEADERS)
 
 def set_security_level(zone_id, security_level):
-    # TODO:
-
+    
     # Define the URL based on the provided zone_id
     url = f'https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_level'
 
@@ -42,7 +41,7 @@ def set_security_level(zone_id, security_level):
     pass
 
 
-def enable_under_attack_mode(zone_id):
+def enable_under_attack_mode(zone_id, security_level):
     # TODO:
     # Define the URL based on the provided zone_id
     url = f'https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_level'
@@ -58,7 +57,6 @@ def enable_under_attack_mode(zone_id):
     else:
         print(f"Error setting security level. Status Code: {response.status_code}")
         
-    pass
 
 
 def set_challenge_passage_time(zone_id, time_in_seconds):
@@ -77,21 +75,21 @@ def set_challenge_passage_time(zone_id, time_in_seconds):
         print(f"Challenge Passage Time set to {time_in_seconds} successfully.")
     else:
         print(f"Error setting Challenge passage time. Status Code: {response.status_code}")
+        print('Response:', response.text)
         
-    pass
 
 
 if __name__ == "__main__":
-    zone_id = os.getenv("ZONE_ID")
-    security_level = "under_attack"
+    #zone_id = os.getenv("ZONE_ID")
+    #security_level = "under_attack"
     
 
-    # print("___________________________________________________")
-    # print("setting security level")
-    # set_security_level(zone_id=zone_id, security_level=security_level)
-    # print("___________________________________________________")
-    # print("enabling under attack mode")
-    # enable_under_attack_mode(zone_id=zone_id)
+    print("___________________________________________________")
+    print("setting security level")
+    set_security_level(zone_id, "high")
+    print("___________________________________________________")
+    print("enabling under attack mode")
+    enable_under_attack_mode(zone_id, "under_attack")
     print("___________________________________________________")
     print("setting challenge passage time")
-    set_challenge_passage_time(zone_id=zone_id, time_in_seconds=1800)
+    set_challenge_passage_time(zone_id, 300)
